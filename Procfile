@@ -1,1 +1,1 @@
-Web: gunicorn eventex.wsgi --log-file--
+Web: gunicorn eventex.wsgi --log-file -
