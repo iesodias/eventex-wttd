@@ -22,3 +22,4 @@ urlpatterns = [
     url(r'^$', eventex_views.home, name='home'),
     url(r'^admin/', admin.site.urls),
 ]
+
