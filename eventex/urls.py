@@ -17,9 +17,11 @@ from django.conf.urls import url
 from django.contrib import admin
 # importe explicitamente o modulo da view e passe a funcao view como parametro para a funcao url()
 from eventex.core import views as eventex_views
+from eventex.subscriptions.views import subscribe
 
 urlpatterns = [
     url(r'^$', eventex_views.home, name='home'),
+    url(r'^inscricao/$', subscribe),
     url(r'^admin/', admin.site.urls),
 ]
 
