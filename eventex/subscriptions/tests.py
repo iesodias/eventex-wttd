@@ -75,7 +75,28 @@ class SubcribePostTest(TestCase):
 
 
 class SubcribeInvalidPost(TestCase):
+        def setUp(self):
+            self.resp = self.client.post('/inscricao/', {})
+
         def test_post(self):
             """Invalid POST should not redirect"""
-            response = self.client.post('/inscricao/', {})
-            self.assertEqual(200, response.status_code)
+            self.assertEqual(200, self.resp.status_code)
+
+        def test_template(self):
+            self.assertTemplateUsed(self.resp, 'subscriptions/subscription_form.html')
+
+        def test_has_form(self):
+            form = self.resp.context['form']
+            self.assertIsInstance(form, SubscriptionForm)
+
+        def test_form_has_errors(self):
+            form = self.resp.context['form']
+            self.assertTrue(form.errors)
+
+class SubscribeSuccessMessage(TestCase):
+    def test_message(self):
+        data = dict(name='Henrique Bastos', cpf='12345678901',
+                    email='henrique@bastos.net', phone='21-99618-6188')
+        response = self.client.post('/inscricao/', data, follow=True)
+        self.assertContains(response, 'Inscrição realizada com sucesso!')
+
