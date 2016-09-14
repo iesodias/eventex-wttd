@@ -74,7 +74,7 @@ class SubcribePostTest(TestCase):
             self.assertIn('21-99618-6180', email.body)
 
 
-class SubscribeInvalidPost(TestCase):
+class SubcribeInvalidPost(TestCase):
         def test_post(self):
             """Invalid POST should not redirect"""
             response = self.client.post('/inscricao/', {})
