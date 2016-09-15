@@ -2,6 +2,9 @@
 
 Sistema de Eventos encomendado pela Morena.
 
+[![Build Status](https://travis-ci.org/iesodias/eventex-wttd.svg?branch=master)](https://travis-ci.org/iesodias/eventex-wttd)
+[![Code Health](https://landscape.io/github/iesodias/eventex-wttd/master/landscape.svg?style=flat)](https://landscape.io/github/iesodias/eventex-wttd/master)
+
 ## Como desenvolver?
 
 1. Clone o repósitorio.
