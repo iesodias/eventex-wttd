@@ -2,8 +2,6 @@ from django.test import TestCase
 
 from eventex.subscriptions.forms import SubscriptionForm
 
-
-
 class SubscriptionFormTest(TestCase):
 
     def test_form_has_feilds(self):

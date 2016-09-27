@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 
 
-def validade_cpf(value):
+def validate_cpf(value):
     if not value.isdigit():
         raise ValidationError('CPF deve conter apenas números', 'digits')
 
@@ -11,6 +11,6 @@ def validade_cpf(value):
 
 class SubscriptionForm(forms.Form):
     name = forms.CharField(label='Nome')
-    cpf = forms.CharField(label='CPF', validators=[validade_cpf])
+    cpf = forms.CharField(label='CPF', validators=[validate_cpf])
     email = forms.EmailField(label='Email')
     phone = forms.CharField(label='Telefone')
