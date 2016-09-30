@@ -28,12 +28,12 @@ class SubscriptionFormTest(TestCase):
 
     def test_email_is_optional(self):
         """email is optional"""
-        form = self.make_validated_form(email='', cpf='12345678901')
+        form = self.make_validated_form(email='')
         self.assertFalse(form.errors)
 
     def test_phone_is_optional(self):
         """phone is optinal"""
-        form = self.make_validated_form(phone='', cpf='12345678901')
+        form = self.make_validated_form(phone='')
         self.assertFalse(form.errors)
 
     def test_must_inform_email_or_phone(self):
@@ -53,7 +53,7 @@ class SubscriptionFormTest(TestCase):
         self.assertListEqual([msg], errors_list)
 
     def make_validated_form(self, **kwargs):
-        valid = dict(name='Henrique Bastos', cpf='1234',
+        valid = dict(name='Henrique Bastos', cpf='12345678901',
                     email='henrique@bastos.net', phone='21-996186180')
         data = dict(valid, **kwargs)
         form = SubscriptionForm(data)
