@@ -7,3 +7,6 @@ def home(request):
     ]
     return render(request, 'index.html', {'speakers': speakers})
 
+def speaker_detail(request):
+    from django.http import HttpResponse
+    return HttpResponse
